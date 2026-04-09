@@ -46,7 +46,6 @@ class ReferenceLoader:
             # Try ffmpeg first, fallback to soundfile
             try:
                 from torchaudio.io import _load_audio_fileobj  # noqa: F401
-
                 self.backend = "ffmpeg"
             except (ImportError, ModuleNotFoundError):
                 self.backend = "soundfile"
