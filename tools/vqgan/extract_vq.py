@@ -34,8 +34,7 @@ except AttributeError:
     # torchaudio 2.9+ removed list_audio_backends()
     # Try ffmpeg first, fallback to soundfile
     try:
-        import torchaudio.io._load_audio_fileobj  # Check if ffmpeg backend is available
-
+        from torchaudio.io import _load_audio_fileobj  # noqa: F401
         backend = "ffmpeg"
     except (ImportError, ModuleNotFoundError):
         backend = "soundfile"
